@@ -2,8 +2,8 @@
   'use strict';
 
   // ---- Configuración: cambia estos datos y se actualiza toda la web ----
-  const WHATSAPP = '5491100000000';            // código de país + número, sin "+" ni espacios (dato de ejemplo)
-  const INSTAGRAM = 'anamariafloreria';        // usuario de Instagram, sin "@" (dato de ejemplo)
+  const WHATSAPP = '13052164794';              // código de país + número, sin "+" ni espacios (+1 305 216 4794)
+  const INSTAGRAM = 'angisoto09__';             // usuario de Instagram, sin "@"
   // ----------------------------------------------------------------------
 
   const $ = (sel, ctx = document) => ctx.querySelector(sel);
@@ -13,16 +13,7 @@
   const waLink = (text) => `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(text)}`;
   const openInNewTab = (a) => { a.target = '_blank'; a.rel = 'noopener'; };
 
-  // WhatsApp: cualquier enlace con data-wa="mensaje" o data-wa-product="Nombre del arreglo"
-  $$('[data-wa]').forEach((a) => {
-    a.href = waLink(a.dataset.wa);
-    openInNewTab(a);
-  });
-  $$('[data-wa-product]').forEach((a) => {
-    a.href = waLink(`Hola, me interesa el arreglo "${a.dataset.waProduct}". ¿Tienen disponibilidad?`);
-    a.setAttribute('aria-label', `Pedir ${a.dataset.waProduct}`);
-    openInNewTab(a);
-  });
+  const { t } = window.I18N;
 
   // Instagram
   $$('[data-instagram], [data-reel]').forEach((a) => {
@@ -30,17 +21,43 @@
   });
   $('#t-insta').textContent = `@${INSTAGRAM}`;
 
-  // Aviso a lectores de pantalla en los enlaces que abren pestaña nueva
-  $$('a[target="_blank"]').forEach((a) => {
-    if (a.getAttribute('aria-label')) {
-      a.setAttribute('aria-label', `${a.getAttribute('aria-label')} (se abre en una pestaña nueva)`);
-    } else {
-      const note = document.createElement('span');
-      note.className = 'sr-only';
-      note.textContent = ' (se abre en una pestaña nueva)';
-      a.append(note);
-    }
-  });
+  // Enlaces que dependen del idioma: se calculan al cargar y cada vez que se cambia de idioma.
+  // i18n.js ya dejó data-wa y los aria-label base en el idioma actual antes de avisarnos.
+  const refreshLinks = () => {
+    // WhatsApp: cualquier enlace con data-wa="mensaje" o data-wa-product="Nombre del arreglo"
+    $$('[data-wa]').forEach((a) => {
+      a.href = waLink(a.dataset.wa);
+      openInNewTab(a);
+    });
+    $$('[data-wa-product]').forEach((a) => {
+      const name = a.dataset.waProduct;
+      a.href = waLink(t('wa.product', { name }));
+      a.setAttribute('aria-label', t('aria.order', { name }));
+      openInNewTab(a);
+    });
+
+    // Aviso a lectores de pantalla en los enlaces que abren pestaña nueva
+    $$('a[target="_blank"]').forEach((a) => {
+      if (a.getAttribute('aria-label')) {
+        // Quita el aviso anterior (de otro idioma) si i18n.js no restauró la etiqueta base
+        let label = a.getAttribute('aria-label');
+        if (a.dataset.newtabNote && label.endsWith(a.dataset.newtabNote)) label = label.slice(0, -a.dataset.newtabNote.length);
+        a.dataset.newtabNote = ` ${t('newtab')}`;
+        a.setAttribute('aria-label', label + a.dataset.newtabNote);
+      } else {
+        let note = $('.sr-only[data-newtab]', a);
+        if (!note) {
+          note = document.createElement('span');
+          note.className = 'sr-only';
+          note.dataset.newtab = '';
+          a.append(note);
+        }
+        note.textContent = ` ${t('newtab')}`;
+      }
+    });
+  };
+  refreshLinks();
+  document.addEventListener('i18n:change', refreshLinks);
 
   // Año del copyright
   $$('[data-year]').forEach((el) => { el.textContent = new Date().getFullYear(); });
