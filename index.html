@@ -34,6 +34,7 @@
     <symbol id="i-whatsapp" viewBox="0 0 24 24"><path d="M3.5 20.5l1.3-4.2A8.5 8.5 0 1 1 8 19.4z"/><path d="M9 8.5c0 3.5 3 6.5 6.5 6.5l1-1.5-2-1-1 .8c-1-.4-2-1.4-2.4-2.4l.8-1-1-2z"/></symbol>
     <symbol id="i-instagram" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r=".8" fill="currentColor"/></symbol>
     <symbol id="i-facebook" viewBox="0 0 24 24"><path d="M14 9h3V5.5h-3A4 4 0 0 0 10 9.5V12H7v3.5h3V21h3.5v-5.5H17l.5-3.5h-4v-2c0-.6.4-1 1-1z" fill="currentColor" stroke="none"/></symbol>
+    <symbol id="i-zoom" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5M11 8v6M8 11h6"/></symbol>
     <symbol id="i-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></symbol>
   </svg>
 
@@ -142,66 +143,122 @@
         <!-- Fotos de ejemplo (Wikimedia Commons, ver img/flores/CREDITOS.md). Reemplázalas por tus fotos. -->
         <div class="grid">
           <article class="card">
-            <div class="card__media"><img src="img/flores/arreglo-1.jpg" alt="Pink peonies in a glass vase" data-i18n-attr="alt:p1.alt" width="900" height="1125" loading="lazy"></div>
+            <div class="card__media">
+              <button class="card__zoom" type="button" data-detail>
+                <img src="img/flores/arreglo-1.jpg" alt="Pink peonies in a glass vase" data-i18n-attr="alt:p1.alt" width="900" height="1125" loading="lazy">
+                <span class="sr-only" data-i18n="detail.view">View details</span>
+                <svg class="icon card__zoom-icon" aria-hidden="true"><use href="#i-zoom"/></svg>
+              </button>
+            </div>
             <div class="card__body">
               <h3 class="card__name" data-i18n="p1.name">Pink peonies</h3>
               <p class="card__desc" data-i18n="p1.desc">Soft, romantic and full of volume.</p>
+              <p class="card__long" data-i18n="p1.long" hidden>Pink peonies are the flower of tenderness and good fortune, which makes this arrangement ideal when you want to say something heartfelt without being heavy. Choose it for a first anniversary, a baby shower, a Mother's Day surprise or to welcome a newborn. It also suits a bridal shower or a thank-you to someone who has cared for you. Peonies are in season for a short time, so the bouquet feels special and rare. Their full, ruffled blooms fill a room with soft color and a light fragrance, perfect for a bedside table, a dining table or a reception desk. Best enjoyed within the first week.</p>
               <a class="btn btn--dark btn--sm" href="#" data-wa-product="Pink peonies" data-i18n-attr="data-wa-product:p1.name" data-i18n="order">Order</a>
             </div>
           </article>
           <article class="card">
-            <div class="card__media"><img src="img/flores/arreglo-2.jpg" alt="Bouquet of pink roses, lisianthus and hydrangeas" data-i18n-attr="alt:p2.alt" width="900" height="1125" loading="lazy"></div>
+            <div class="card__media">
+              <button class="card__zoom" type="button" data-detail>
+                <img src="img/flores/arreglo-2.jpg" alt="Bouquet of pink roses, lisianthus and hydrangeas" data-i18n-attr="alt:p2.alt" width="900" height="1125" loading="lazy">
+                <span class="sr-only" data-i18n="detail.view">View details</span>
+                <svg class="icon card__zoom-icon" aria-hidden="true"><use href="#i-zoom"/></svg>
+              </button>
+            </div>
             <div class="card__body">
               <h3 class="card__name" data-i18n="p2.name">Romantic bouquet</h3>
               <p class="card__desc" data-i18n="p2.desc">Roses, lisianthus and hydrangea in dusty tones.</p>
+              <p class="card__long" data-i18n="p2.long" hidden>This soft, dusty-toned bouquet of roses, lisianthus and hydrangea is made for romance. Choose it for an anniversary, Valentine's Day, a proposal, or an apology that deserves more than words. It also works beautifully as a wedding gift, for a bridal shower or as a quiet “thinking of you” on an ordinary Tuesday. The muted palette feels elegant rather than loud, so it suits partners, mothers and friends alike. Hydrangea adds generous volume, while lisianthus lasts well in water. It arrives ready for a vase on the living room table, where its gentle colors will be admired for days.</p>
               <a class="btn btn--dark btn--sm" href="#" data-wa-product="Romantic bouquet" data-i18n-attr="data-wa-product:p2.name" data-i18n="order">Order</a>
             </div>
           </article>
           <article class="card">
-            <div class="card__media"><img src="img/flores/arreglo-3.jpg" alt="Fuchsia hydrangea bouquet with green foliage" data-i18n-attr="alt:p3.alt" width="900" height="1125" loading="lazy"></div>
+            <div class="card__media">
+              <button class="card__zoom" type="button" data-detail>
+                <img src="img/flores/arreglo-3.jpg" alt="Fuchsia hydrangea bouquet with green foliage" data-i18n-attr="alt:p3.alt" width="900" height="1125" loading="lazy">
+                <span class="sr-only" data-i18n="detail.view">View details</span>
+                <svg class="icon card__zoom-icon" aria-hidden="true"><use href="#i-zoom"/></svg>
+              </button>
+            </div>
             <div class="card__body">
               <h3 class="card__name" data-i18n="p3.name">Fuchsia hydrangea</h3>
               <p class="card__desc" data-i18n="p3.desc">Bold color to celebrate with character.</p>
+              <p class="card__long" data-i18n="p3.long" hidden>Bold fuchsia hydrangeas bring energy and confidence, so this is the arrangement for celebrations with character. Choose it for a birthday, a graduation, a promotion, an opening night or a new home, when you want the gift to be noticed the moment it arrives. It is also a cheerful way to brighten an office, a clinic waiting room or a friend's difficult week. The dense, rounded blooms and green foliage look striking in a simple vase and need very little styling. Hydrangeas are thirsty flowers, so keep the water fresh. It suits people who love color and are not afraid of a statement.</p>
               <a class="btn btn--dark btn--sm" href="#" data-wa-product="Fuchsia hydrangea" data-i18n-attr="data-wa-product:p3.name" data-i18n="order">Order</a>
             </div>
           </article>
           <article class="card">
-            <div class="card__media"><img src="img/flores/arreglo-4.jpg" alt="White roses with baby's breath" data-i18n-attr="alt:p4.alt" width="900" height="1125" loading="lazy"></div>
+            <div class="card__media">
+              <button class="card__zoom" type="button" data-detail>
+                <img src="img/flores/arreglo-4.jpg" alt="White roses with baby's breath" data-i18n-attr="alt:p4.alt" width="900" height="1125" loading="lazy">
+                <span class="sr-only" data-i18n="detail.view">View details</span>
+                <svg class="icon card__zoom-icon" aria-hidden="true"><use href="#i-zoom"/></svg>
+              </button>
+            </div>
             <div class="card__body">
               <h3 class="card__name" data-i18n="p4.name">White roses</h3>
               <p class="card__desc" data-i18n="p4.desc">Timeless elegance with baby's breath.</p>
+              <p class="card__long" data-i18n="p4.long" hidden>White roses speak of respect, new beginnings and timeless elegance, paired here with delicate baby's breath. This arrangement is a safe, refined choice for many moments: a wedding or engagement, a christening, a corporate gift, a thank-you to a mentor, or a quiet apology. Because white is calm and universal, it also suits formal occasions where you want to show care without a strong message, and it is appropriate when you are unsure of the recipient's taste. It looks lovely in a hallway, a reception area or beside a bed. Choose it when you want classic style that never feels dated.</p>
               <a class="btn btn--dark btn--sm" href="#" data-wa-product="White roses" data-i18n-attr="data-wa-product:p4.name" data-i18n="order">Order</a>
             </div>
           </article>
           <article class="card">
-            <div class="card__media"><img src="img/flores/arreglo-5.jpg" alt="White bouquet of ranunculus and tulips with pink touches" data-i18n-attr="alt:p5.alt" width="900" height="1125" loading="lazy"></div>
+            <div class="card__media">
+              <button class="card__zoom" type="button" data-detail>
+                <img src="img/flores/arreglo-5.jpg" alt="White bouquet of ranunculus and tulips with pink touches" data-i18n-attr="alt:p5.alt" width="900" height="1125" loading="lazy">
+                <span class="sr-only" data-i18n="detail.view">View details</span>
+                <svg class="icon card__zoom-icon" aria-hidden="true"><use href="#i-zoom"/></svg>
+              </button>
+            </div>
             <div class="card__body">
               <h3 class="card__name" data-i18n="p5.name">White and pink bouquet</h3>
               <p class="card__desc" data-i18n="p5.desc">Delicate, fresh and spring-like.</p>
+              <p class="card__long" data-i18n="p5.long" hidden>Delicate white ranunculus and tulips with soft pink touches give this bouquet a fresh, spring-like mood. It is perfect for gentle celebrations: a new baby, a christening, a bridal shower, a birthday for someone sweet, or the first warm days of the year. It is also a lovely get-well gift because it feels light and hopeful rather than heavy. Its airy shape fits easily on a kitchen table, a desk or a hospital bedside table. Tulips keep growing in the vase, so the bouquet changes shape over several days, which adds charm. Choose it when you want to say something kind in a quiet voice.</p>
               <a class="btn btn--dark btn--sm" href="#" data-wa-product="White and pink bouquet" data-i18n-attr="data-wa-product:p5.name" data-i18n="order">Order</a>
             </div>
           </article>
           <article class="card">
-            <div class="card__media"><img src="img/flores/arreglo-6.jpg" alt="Arrangement with orange calla lilies, roses and green hydrangea" data-i18n-attr="alt:p6.alt" width="900" height="1125" loading="lazy"></div>
+            <div class="card__media">
+              <button class="card__zoom" type="button" data-detail>
+                <img src="img/flores/arreglo-6.jpg" alt="Arrangement with orange calla lilies, roses and green hydrangea" data-i18n-attr="alt:p6.alt" width="900" height="1125" loading="lazy">
+                <span class="sr-only" data-i18n="detail.view">View details</span>
+                <svg class="icon card__zoom-icon" aria-hidden="true"><use href="#i-zoom"/></svg>
+              </button>
+            </div>
             <div class="card__body">
               <h3 class="card__name" data-i18n="p6.name">Calla lilies and roses</h3>
               <p class="card__desc" data-i18n="p6.desc">Warm tones to toast in style.</p>
+              <p class="card__long" data-i18n="p6.long" hidden>Orange calla lilies, roses and green hydrangea create a warm, sophisticated arrangement with a modern line. Choose it to toast an achievement: a new job, a business opening, a housewarming, a retirement or a work anniversary. The sculptural calla lilies feel elegant and confident, so it also suits a gift for someone with refined taste, such as a host, a client or a mentor. The warm tones work especially well in autumn and in homes with wood or neutral decor. Place it on a dining table or an entrance console, where its strong shapes become a focal point. It lasts well and needs only fresh water.</p>
               <a class="btn btn--dark btn--sm" href="#" data-wa-product="Calla lilies and roses" data-i18n-attr="data-wa-product:p6.name" data-i18n="order">Order</a>
             </div>
           </article>
           <article class="card">
-            <div class="card__media"><img src="img/flores/arreglo-7.jpg" alt="Floral arrangement in pink and violet tones" data-i18n-attr="alt:p7.alt" width="900" height="1125" loading="lazy"></div>
+            <div class="card__media">
+              <button class="card__zoom" type="button" data-detail>
+                <img src="img/flores/arreglo-7.jpg" alt="Floral arrangement in pink and violet tones" data-i18n-attr="alt:p7.alt" width="900" height="1125" loading="lazy">
+                <span class="sr-only" data-i18n="detail.view">View details</span>
+                <svg class="icon card__zoom-icon" aria-hidden="true"><use href="#i-zoom"/></svg>
+              </button>
+            </div>
             <div class="card__body">
               <h3 class="card__name" data-i18n="p7.name">Night garden</h3>
               <p class="card__desc" data-i18n="p7.desc">Deep violets and pinks with a stately air.</p>
+              <p class="card__long" data-i18n="p7.long" hidden>Deep violets and rich pinks give this arrangement a stately, almost theatrical air. Choose it for an evening occasion: a dinner party, an opening night, an anniversary of many years, or a gift for someone who loves drama and depth. It is also fitting as a thoughtful sympathy gesture or a gift for an elder, because the dark tones feel respectful and mature rather than cheerful. Its richness looks best in low light, on a piano, a sideboard or a library table. If you want to impress with something unusual and elegant instead of the expected pastel bouquet, this is the one to pick.</p>
               <a class="btn btn--dark btn--sm" href="#" data-wa-product="Night garden" data-i18n-attr="data-wa-product:p7.name" data-i18n="order">Order</a>
             </div>
           </article>
           <article class="card">
-            <div class="card__media"><img src="img/flores/arreglo-8.jpg" alt="Peach-colored tulips" data-i18n-attr="alt:p8.alt" width="900" height="1125" loading="lazy"></div>
+            <div class="card__media">
+              <button class="card__zoom" type="button" data-detail>
+                <img src="img/flores/arreglo-8.jpg" alt="Peach-colored tulips" data-i18n-attr="alt:p8.alt" width="900" height="1125" loading="lazy">
+                <span class="sr-only" data-i18n="detail.view">View details</span>
+                <svg class="icon card__zoom-icon" aria-hidden="true"><use href="#i-zoom"/></svg>
+              </button>
+            </div>
             <div class="card__body">
               <h3 class="card__name" data-i18n="p8.name">Peach tulips</h3>
               <p class="card__desc" data-i18n="p8.desc">Softness and color in delicate tones.</p>
+              <p class="card__long" data-i18n="p8.long" hidden>Soft peach tulips are friendly, hopeful and gentle, which makes them an easy gift for almost anyone. Choose them to say thank you, to celebrate a new job, to cheer up a friend, to welcome spring, or simply to give flowers for no reason at all. They suit teachers, neighbors, mothers and colleagues, and they are never too formal or too intimate. The delicate color warms any room, from a kitchen counter to a work desk. Tulips continue to move and bend in the vase, which gives the bouquet a natural, relaxed look. They last longest in cool rooms, away from direct sun and ripening fruit.</p>
               <a class="btn btn--dark btn--sm" href="#" data-wa-product="Peach tulips" data-i18n-attr="data-wa-product:p8.name" data-i18n="order">Order</a>
             </div>
           </article>
@@ -382,6 +439,20 @@
       </div>
     </div>
   </footer>
+
+  <!-- Detalle de arreglo: se abre al tocar una tarjeta (ver main.js) -->
+  <dialog class="detail" id="detail" aria-labelledby="detail-title">
+    <button class="icon-btn detail__close" type="button" aria-label="Close" data-i18n-attr="aria-label:detail.close">
+      <svg class="icon" aria-hidden="true"><use href="#i-close"/></svg>
+    </button>
+    <div class="detail__media"><img class="detail__img" alt="" width="900" height="1125"></div>
+    <div class="detail__body">
+      <p class="kicker" data-i18n="detail.kicker">When to give it</p>
+      <h2 class="title detail__title" id="detail-title"></h2>
+      <p class="detail__text"></p>
+      <a class="btn btn--primary detail__order" href="#" target="_blank" rel="noopener" data-i18n="order">Order</a>
+    </div>
+  </dialog>
 
   <a class="wa-float" href="#" data-wa="Hello, I'd like to place an order." aria-label="Order on WhatsApp" data-i18n-attr="data-wa:wa.order;aria-label:aria.wa">
     <svg class="icon" aria-hidden="true"><use href="#i-whatsapp"/></svg><span data-i18n="order">Order</span>

@@ -104,6 +104,35 @@
     li.addEventListener('focusout', () => li.classList.remove('is-dismissed'));
   });
 
+  // ---- Detalle de arreglo: al tocar una tarjeta se abre una ventana con la foto grande y cuándo regalarlo ----
+  // El texto largo vive oculto en cada tarjeta (.card__long) y i18n.js lo traduce como el resto.
+  const detail = $('#detail');
+  if (detail && typeof detail.showModal === 'function') {
+    const dImg = $('.detail__img', detail);
+    const dTitle = $('.detail__title', detail);
+    const dText = $('.detail__text', detail);
+    const dOrder = $('.detail__order', detail);
+
+    const openDetail = (card) => {
+      const img = $('.card__media img', card);
+      dImg.src = img.currentSrc || img.src;
+      dImg.alt = img.alt;
+      dTitle.textContent = $('.card__name', card).textContent;
+      dText.textContent = $('.card__long', card).textContent;
+      dOrder.href = $('[data-wa-product]', card).href;
+      document.body.classList.add('modal-open');
+      detail.showModal();
+      detail.scrollTop = 0;
+    };
+
+    $$('.card').forEach((card) => card.addEventListener('click', (e) => {
+      if (!e.target.closest('a')) openDetail(card); // el botón "Pedir" de la tarjeta sigue yendo a WhatsApp
+    }));
+    $('.detail__close', detail).addEventListener('click', () => detail.close());
+    detail.addEventListener('click', (e) => { if (e.target === detail) detail.close(); }); // clic en el fondo
+    detail.addEventListener('close', () => document.body.classList.remove('modal-open'));
+  }
+
   // ---- El botón flotante de WhatsApp se oculta cuando se ve el footer (ya tiene sus propios enlaces) ----
   const waFloat = $('.wa-float');
   if ('IntersectionObserver' in window) {
