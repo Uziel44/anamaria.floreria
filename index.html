@@ -1,0 +1,397 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ana María Florería | Arreglos florales de autor</title>
+  <meta name="description" content="Ana María Florería: arreglos florales de autor, diseñados a mano para cada ocasión. Pedidos por WhatsApp.">
+  <meta name="theme-color" content="#fff6ee">
+  <link rel="icon" type="image/png" href="img/isotipo.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <script>document.documentElement.classList.add('js');</script>
+  <script defer src="js/main.js"></script>
+</head>
+<body>
+
+  <!-- Iconos reutilizables -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+    <symbol id="i-flower" viewBox="0 0 24 24"><path d="M12 21v-8"/><path d="M12 13c-4 0-6-2.5-6-6 4 0 6 2 6 6z"/><path d="M12 15c3.5 0 5.5-2 5.5-5.5-3.5 0-5.5 2-5.5 5.5z"/></symbol>
+    <symbol id="i-note" viewBox="0 0 24 24"><path d="M6 3h9l4 4v14H6z"/><path d="M14 3v5h5M9 13h7M9 17h5"/></symbol>
+    <symbol id="i-truck" viewBox="0 0 24 24"><path d="M3 6h11v10H3z"/><path d="M14 10h4l3 3v3h-7"/><circle cx="7" cy="17.5" r="1.8"/><circle cx="17" cy="17.5" r="1.8"/></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24"><path d="m12 3 2.6 5.6 6 .7-4.5 4.1 1.2 6L12 16.4 6.7 19.4l1.2-6L3.4 9.3l6-.7z"/></symbol>
+    <symbol id="i-gem" viewBox="0 0 24 24"><path d="M6 4h12l3 5-9 11L3 9z"/><path d="M3 9h18M9 4l-2 5 5 11 5-11-2-5"/></symbol>
+    <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></symbol>
+    <symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></symbol>
+    <symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 3v5M12 16v5M3 12h5M16 12h5M6 6l3 3M15 15l3 3M18 6l-3 3M9 15l-3 3"/></symbol>
+    <symbol id="i-whatsapp" viewBox="0 0 24 24"><path d="M3.5 20.5l1.3-4.2A8.5 8.5 0 1 1 8 19.4z"/><path d="M9 8.5c0 3.5 3 6.5 6.5 6.5l1-1.5-2-1-1 .8c-1-.4-2-1.4-2.4-2.4l.8-1-1-2z"/></symbol>
+    <symbol id="i-instagram" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r=".8" fill="currentColor"/></symbol>
+    <symbol id="i-facebook" viewBox="0 0 24 24"><path d="M14 9h3V5.5h-3A4 4 0 0 0 10 9.5V12H7v3.5h3V21h3.5v-5.5H17l.5-3.5h-4v-2c0-.6.4-1 1-1z" fill="currentColor" stroke="none"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></symbol>
+  </svg>
+
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+  <!-- 1 · Banner superior -->
+  <div class="announce">
+    Arreglos florales de autor · Consulta disponibilidad y entrega por
+    <a href="#" data-wa="Hola, quisiera consultar disponibilidad y entrega.">WhatsApp</a>
+  </div>
+
+  <!-- 2 · Navegación (se mantiene fija al hacer scroll) -->
+  <header class="site-header" id="header">
+    <div class="header__inner">
+      <button class="icon-btn nav-toggle" type="button" aria-expanded="false" aria-controls="nav" aria-label="Menú">
+        <svg class="icon" aria-hidden="true"><use href="#i-menu"/></svg>
+      </button>
+
+      <nav class="nav" id="nav" aria-label="Principal">
+        <button class="icon-btn nav-close" type="button" aria-label="Cerrar menú">
+          <svg class="icon" aria-hidden="true"><use href="#i-close"/></svg>
+        </button>
+        <ul class="nav__list">
+          <li><a class="nav__link" href="#inicio">Inicio</a></li>
+          <li class="has-sub">
+            <a class="nav__link" href="#ocasiones">Ocasiones</a>
+            <ul class="sub">
+              <li><a href="#ocasiones">Cumpleaños</a></li>
+              <li><a href="#ocasiones">Aniversario y amor</a></li>
+              <li><a href="#ocasiones">Condolencias</a></li>
+              <li><a href="#ocasiones">Felicitaciones</a></li>
+              <li><a href="#ocasiones">Gracias · Mejórate pronto · Sin motivo</a></li>
+            </ul>
+          </li>
+          <li><a class="nav__link" href="#arreglos">Arreglos</a></li>
+          <li><a class="nav__link" href="#ana-maria">Sobre Ana María</a></li>
+          <li><a class="nav__link" href="#contacto">Contacto</a></li>
+        </ul>
+      </nav>
+
+      <a class="brand" href="#inicio" aria-label="Ana María Florería, inicio">
+        <img class="brand__text" src="img/logo-texto.png" alt="Ana María Florería" width="169" height="56">
+      </a>
+
+      <div class="header__actions">
+        <a class="icon-btn" href="#arreglos" aria-label="Ver arreglos">
+          <svg class="icon" aria-hidden="true"><use href="#i-search"/></svg>
+        </a>
+        <a class="icon-btn" href="#" data-wa="Hola, quisiera hacer un pedido." aria-label="Pedir por WhatsApp">
+          <svg class="icon" aria-hidden="true"><use href="#i-whatsapp"/></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+  <div class="nav-backdrop" id="backdrop"></div>
+
+  <main id="contenido" tabindex="-1">
+
+    <!-- 3 · Hero -->
+    <section class="hero" id="inicio">
+      <img class="hero__img" src="img/flores/hero.jpg" alt="" width="1600" height="1067" fetchpriority="high">
+      <div class="hero__copy">
+        <p class="kicker">Florería de autor</p>
+        <h1 class="hero__title">Cada arreglo, una obra de <span class="script">arte floral</span></h1>
+        <p class="hero__text">No vendemos flores: creamos experiencias que transmiten lujo, sofisticación y emoción. Diseño floral hecho a mano para cada momento especial.</p>
+        <div class="hero__cta">
+          <a class="btn btn--primary" href="#ocasiones">Elegir por ocasión</a>
+          <a class="btn btn--ghost" href="#arreglos">Ver todos los arreglos</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3 · Arreglos destacados + 3 pasos -->
+    <section class="section" id="arreglos" aria-labelledby="t-arreglos">
+      <div class="panel reveal">
+        <div class="panel__head">
+          <div class="panel__intro">
+            <h2 class="title" id="t-arreglos">Arreglos destacados</h2>
+            <p class="lead">Diseños de autor, ramos y arreglos listos para regalar.</p>
+            <a class="btn btn--ghost btn--sm" href="#" data-wa="Hola, quisiera ver el catálogo completo de arreglos.">Ver todos</a>
+          </div>
+          <article class="step">
+            <p class="kicker">Paso uno</p>
+            <span class="step__icon"><svg class="icon" aria-hidden="true"><use href="#i-flower"/></svg></span>
+            <h3 class="step__title">Elige tu arreglo.</h3>
+            <p>Explora ramos y arreglos, y escoge el que mejor transmita lo que quieres decir.</p>
+          </article>
+          <article class="step">
+            <p class="kicker">Paso dos</p>
+            <span class="step__icon"><svg class="icon" aria-hidden="true"><use href="#i-note"/></svg></span>
+            <h3 class="step__title">Cuéntanos los detalles.</h3>
+            <p>Destinatario, dirección, fecha y el mensaje de tu tarjeta. Todo por WhatsApp.</p>
+          </article>
+          <article class="step">
+            <p class="kicker">Paso tres</p>
+            <span class="step__icon"><svg class="icon" aria-hidden="true"><use href="#i-truck"/></svg></span>
+            <h3 class="step__title">Diseñamos y entregamos.</h3>
+            <p>Cada pieza se arma a mano y se entrega con el mayor cuidado.</p>
+          </article>
+        </div>
+
+        <hr>
+
+        <!-- Fotos de ejemplo (Wikimedia Commons, ver img/flores/CREDITOS.md). Reemplázalas por tus fotos. -->
+        <div class="grid">
+          <article class="card">
+            <div class="card__media"><img src="img/flores/arreglo-1.jpg" alt="Peonías rosadas en florero de cristal" width="900" height="1125" loading="lazy"></div>
+            <div class="card__body">
+              <h3 class="card__name">Peonías rosadas</h3>
+              <p class="card__desc">Suaves, románticas y llenas de volumen.</p>
+              <a class="btn btn--dark btn--sm" href="#" data-wa-product="Peonías rosadas">Pedir</a>
+            </div>
+          </article>
+          <article class="card">
+            <div class="card__media"><img src="img/flores/arreglo-2.jpg" alt="Ramo de rosas rosadas, lisianthus y hortensias" width="900" height="1125" loading="lazy"></div>
+            <div class="card__body">
+              <h3 class="card__name">Bouquet romántico</h3>
+              <p class="card__desc">Rosas, lisianthus y hortensia en tonos empolvados.</p>
+              <a class="btn btn--dark btn--sm" href="#" data-wa-product="Bouquet romántico">Pedir</a>
+            </div>
+          </article>
+          <article class="card">
+            <div class="card__media"><img src="img/flores/arreglo-3.jpg" alt="Ramo de hortensias fucsia con follaje verde" width="900" height="1125" loading="lazy"></div>
+            <div class="card__body">
+              <h3 class="card__name">Hortensia fucsia</h3>
+              <p class="card__desc">Color intenso para celebrar con carácter.</p>
+              <a class="btn btn--dark btn--sm" href="#" data-wa-product="Hortensia fucsia">Pedir</a>
+            </div>
+          </article>
+          <article class="card">
+            <div class="card__media"><img src="img/flores/arreglo-4.jpg" alt="Rosas blancas con paniculata" width="900" height="1125" loading="lazy"></div>
+            <div class="card__body">
+              <h3 class="card__name">Rosas blancas</h3>
+              <p class="card__desc">Elegancia atemporal con paniculata.</p>
+              <a class="btn btn--dark btn--sm" href="#" data-wa-product="Rosas blancas">Pedir</a>
+            </div>
+          </article>
+          <article class="card">
+            <div class="card__media"><img src="img/flores/arreglo-5.jpg" alt="Ramo blanco de ranúnculos y tulipanes con toques rosados" width="900" height="1125" loading="lazy"></div>
+            <div class="card__body">
+              <h3 class="card__name">Ramo blanco y rosa</h3>
+              <p class="card__desc">Delicado, fresco y de aire primaveral.</p>
+              <a class="btn btn--dark btn--sm" href="#" data-wa-product="Ramo blanco y rosa">Pedir</a>
+            </div>
+          </article>
+          <article class="card">
+            <div class="card__media"><img src="img/flores/arreglo-6.jpg" alt="Arreglo con calas anaranjadas, rosas y hortensia verde" width="900" height="1125" loading="lazy"></div>
+            <div class="card__body">
+              <h3 class="card__name">Calas y rosas</h3>
+              <p class="card__desc">Tonos cálidos para brindar con estilo.</p>
+              <a class="btn btn--dark btn--sm" href="#" data-wa-product="Calas y rosas">Pedir</a>
+            </div>
+          </article>
+          <article class="card">
+            <div class="card__media"><img src="img/flores/arreglo-7.jpg" alt="Arreglo floral en tonos rosa y violeta" width="900" height="1125" loading="lazy"></div>
+            <div class="card__body">
+              <h3 class="card__name">Jardín nocturno</h3>
+              <p class="card__desc">Violetas y rosas profundos, de aire señorial.</p>
+              <a class="btn btn--dark btn--sm" href="#" data-wa-product="Jardín nocturno">Pedir</a>
+            </div>
+          </article>
+          <article class="card">
+            <div class="card__media"><img src="img/flores/arreglo-8.jpg" alt="Tulipanes color durazno" width="900" height="1125" loading="lazy"></div>
+            <div class="card__body">
+              <h3 class="card__name">Tulipanes durazno</h3>
+              <p class="card__desc">Suavidad y color en tonos delicados.</p>
+              <a class="btn btn--dark btn--sm" href="#" data-wa-product="Tulipanes durazno">Pedir</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4 · ¿Cuál es la ocasión? -->
+    <section class="section occasions" id="ocasiones" aria-labelledby="t-ocasiones">
+      <div class="container">
+        <div class="section__head reveal">
+          <div>
+            <span class="kicker">Comprar por ocasión</span>
+            <h2 class="title" id="t-ocasiones">¿Cuál es la <span class="script">ocasión?</span></h2>
+          </div>
+          <p class="lead">Arreglos de autor para cada momento, grande o pequeño.</p>
+        </div>
+
+        <div class="occ-grid reveal">
+          <a class="occ" href="#" data-wa="Hola, busco un arreglo para un cumpleaños.">
+            <div class="occ__media"><img src="img/flores/ocasion-cumple.jpg" alt="Ranúnculos y flores de colores vivos" width="800" height="1000" loading="lazy"></div>
+            <div class="chips"><span class="chip">Vibrante</span><span class="chip">Festivo</span></div>
+            <h3 class="occ__title">Cumpleaños</h3>
+            <p class="occ__desc">Arreglos vibrantes que hacen del momento de la entrega una celebración.</p>
+            <span class="occ__more">Consultar</span>
+          </a>
+          <a class="occ" href="#" data-wa="Hola, busco un arreglo para un aniversario o para decir te quiero.">
+            <div class="occ__media"><img src="img/flores/ocasion-amor.jpg" alt="Ramo de rosas rojas" width="800" height="1000" loading="lazy"></div>
+            <div class="chips"><span class="chip">Rosas</span><span class="chip">Elegancia</span></div>
+            <h3 class="occ__title">Aniversario y amor</h3>
+            <p class="occ__desc">Rosas y composiciones elegantes para aniversarios, San Valentín y cada gesto de cariño.</p>
+            <span class="occ__more">Consultar</span>
+          </a>
+          <a class="occ" href="#" data-wa="Hola, busco un arreglo para expresar condolencias.">
+            <div class="occ__media"><img src="img/flores/ocasion-condolencias.jpg" alt="Hortensias blancas" width="800" height="1000" loading="lazy"></div>
+            <div class="chips"><span class="chip">Sereno</span><span class="chip">Con respeto</span></div>
+            <h3 class="occ__title">Condolencias</h3>
+            <p class="occ__desc">Arreglos suaves y serenos para acompañar con respeto en los momentos más difíciles.</p>
+            <span class="occ__more">Consultar</span>
+          </a>
+          <a class="occ" href="#" data-wa="Hola, busco un arreglo para felicitar a alguien.">
+            <div class="occ__media"><img src="img/flores/ocasion-felicitaciones.jpg" alt="Ramo de rosas rosadas con hipérico rojo" width="800" height="1000" loading="lazy"></div>
+            <div class="chips"><span class="chip">Celebración</span><span class="chip">Logros</span></div>
+            <h3 class="occ__title">Felicitaciones</h3>
+            <p class="occ__desc">Para brindar por ascensos, graduaciones, nuevos hogares y todo logro que merece flores.</p>
+            <span class="occ__more">Consultar</span>
+          </a>
+        </div>
+
+        <div class="occ-extra reveal">
+          <span>También:</span>
+          <a class="btn btn--ghost btn--sm" href="#" data-wa="Hola, busco un arreglo para agradecer.">Gracias</a>
+          <a class="btn btn--ghost btn--sm" href="#" data-wa="Hola, busco un arreglo para desear que se mejoren.">Mejórate pronto</a>
+          <a class="btn btn--ghost btn--sm" href="#" data-wa="Hola, busco un arreglo para regalar sin motivo.">Sin motivo</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5 · Quién es Ana María -->
+    <section class="section about" id="ana-maria" aria-labelledby="t-ana">
+      <img class="about__orn about__orn--tl" src="img/ornamento.png" alt="" width="170" height="175">
+      <img class="about__orn about__orn--tr" src="img/ornamento.png" alt="" width="170" height="175">
+      <div class="container about__grid">
+        <div class="about__copy reveal">
+          <span class="kicker">Conoce a Ana María</span>
+          <h2 class="title" id="t-ana">Flores con alma, diseñadas <span class="script">a mano.</span></h2>
+          <p>Ana María Florería nace con una idea: transformar cada arreglo floral en una obra de arte. Detrás de cada pieza hay dedicación, sensibilidad y una mirada que busca emocionar.</p>
+          <p>Nuestra misión es crear experiencias memorables a través de arreglos únicos, diseñados con elegancia, que transmitan lujo, sofisticación y emociones auténticas en cada ocasión especial.</p>
+          <blockquote>Cada pétalo cuenta algo.</blockquote>
+          <a class="btn btn--primary" href="#" data-wa="Hola Ana María, me gustaría hablar sobre un arreglo a medida.">Hablemos por WhatsApp</a>
+        </div>
+
+        <div class="values reveal">
+          <div class="value value--logo"><img src="img/isotipo.png" alt="" width="170" height="168" loading="lazy"></div>
+          <div class="value">
+            <span class="value__icon"><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg></span>
+            <h3>Excelencia</h3>
+            <p>Atención cuidada en cada detalle del diseño y del acabado.</p>
+          </div>
+          <div class="value">
+            <span class="value__icon"><svg class="icon" aria-hidden="true"><use href="#i-flower"/></svg></span>
+            <h3>Elegancia</h3>
+            <p>Composiciones equilibradas y atemporales.</p>
+          </div>
+          <div class="value">
+            <span class="value__icon"><svg class="icon" aria-hidden="true"><use href="#i-heart"/></svg></span>
+            <h3>Emoción</h3>
+            <p>Arreglos pensados para que quien los recibe sienta que alguien lo tuvo presente.</p>
+          </div>
+          <div class="value">
+            <span class="value__icon"><svg class="icon" aria-hidden="true"><use href="#i-gem"/></svg></span>
+            <h3>Exclusividad</h3>
+            <p>Diseños de autor, pensados con sensibilidad para cada ocasión.</p>
+          </div>
+          <div class="value">
+            <span class="value__icon"><svg class="icon" aria-hidden="true"><use href="#i-spark"/></svg></span>
+            <h3>Innovación</h3>
+            <p>Nuevas miradas del diseño floral, fieles a nuestra esencia.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6 · Instagram -->
+    <section class="section insta" id="instagram" aria-labelledby="t-insta">
+      <div class="container">
+        <div class="section__head reveal">
+          <div>
+            <span class="kicker">Síguenos en Instagram</span>
+            <h2 class="title" id="t-insta">@anamariafloreria</h2>
+          </div>
+          <a class="btn btn--dark" href="https://www.instagram.com/anamariafloreria/" target="_blank" rel="noopener" data-instagram aria-label="Seguir en Instagram">
+            <svg class="icon" aria-hidden="true"><use href="#i-instagram"/></svg> Seguir
+          </a>
+        </div>
+
+        <!--
+          Cada tarjeta es un enlace al Reel/post. Para que se reproduzca el video al pasar el mouse,
+          agrega data-video="video/reel-1.mp4" (archivo propio, corto y sin audio). Si no existe, se ve la foto.
+        -->
+        <div class="reels reveal">
+          <a class="reel" href="https://www.instagram.com/anamariafloreria/" target="_blank" rel="noopener" data-reel>
+            <img src="img/flores/reel-1.jpg" alt="Tulipanes de colores" width="700" height="1050" loading="lazy">
+            <span class="reel__badge"><svg aria-hidden="true"><use href="#i-play"/></svg></span>
+            <span class="reel__label">Tulipanes de temporada</span>
+          </a>
+          <a class="reel" href="https://www.instagram.com/anamariafloreria/" target="_blank" rel="noopener" data-reel>
+            <img src="img/flores/reel-2.jpg" alt="Rosa de tono malva" width="700" height="1050" loading="lazy">
+            <span class="reel__badge"><svg aria-hidden="true"><use href="#i-play"/></svg></span>
+            <span class="reel__label">Detalle de una rosa malva</span>
+          </a>
+          <a class="reel" href="https://www.instagram.com/anamariafloreria/" target="_blank" rel="noopener" data-reel>
+            <img src="img/flores/reel-3.jpg" alt="Ramo en manos de una novia" width="700" height="1050" loading="lazy">
+            <span class="reel__badge"><svg aria-hidden="true"><use href="#i-play"/></svg></span>
+            <span class="reel__label">Ramos para el gran día</span>
+          </a>
+          <a class="reel" href="https://www.instagram.com/anamariafloreria/" target="_blank" rel="noopener" data-reel>
+            <img src="img/flores/reel-4.jpg" alt="Arreglo de lirios y flores silvestres" width="700" height="1050" loading="lazy">
+            <span class="reel__badge"><svg aria-hidden="true"><use href="#i-play"/></svg></span>
+            <span class="reel__label">Arreglo de lirios y silvestres</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- 7 · Footer -->
+  <footer class="site-footer" id="contacto">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <img class="footer__logo" src="img/logo-principal-claro.png" alt="Ana María Florería" width="200" height="152" loading="lazy">
+        <p class="footer__tag">Arreglos florales de autor: lujo, sofisticación y emoción en cada ocasión.</p>
+      </div>
+      <div>
+        <h2 class="footer__title">Explorar</h2>
+        <ul class="footer__list">
+          <li><a href="#arreglos">Arreglos destacados</a></li>
+          <li><a href="#ocasiones">Comprar por ocasión</a></li>
+          <li><a href="#ana-maria">Sobre Ana María</a></li>
+          <li><a href="#instagram">Instagram</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2 class="footer__title">Contacto</h2>
+        <ul class="footer__list">
+          <li><a href="#" data-wa="Hola, quisiera hacer una consulta.">WhatsApp</a></li>
+          <li><a href="https://www.instagram.com/anamariafloreria/" target="_blank" rel="noopener" data-instagram>Instagram</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bar">
+      <span>© <span data-year>2026</span> Ana María Florería · Todos los derechos reservados</span>
+      <span><a href="img/flores/CREDITOS.md">Créditos de fotos</a></span>
+      <div class="social">
+        <a href="https://www.instagram.com/anamariafloreria/" target="_blank" rel="noopener" data-instagram aria-label="Instagram"><svg class="icon" aria-hidden="true"><use href="#i-instagram"/></svg></a>
+        <a href="#" data-wa="Hola, quisiera hacer una consulta." aria-label="WhatsApp"><svg class="icon" aria-hidden="true"><use href="#i-whatsapp"/></svg></a>
+      </div>
+    </div>
+  </footer>
+
+  <a class="wa-float" href="#" data-wa="Hola, quisiera hacer un pedido." aria-label="Pedir por WhatsApp">
+    <svg class="icon" aria-hidden="true"><use href="#i-whatsapp"/></svg><span>Pedir</span>
+  </a>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Florist",
+    "name": "Ana María Florería",
+    "description": "Arreglos florales de autor, diseñados a mano para cada ocasión.",
+    "sameAs": ["https://www.instagram.com/anamariafloreria/"]
+  }
+  </script>
+</body>
+</html>
