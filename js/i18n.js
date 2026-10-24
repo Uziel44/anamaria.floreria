@@ -17,6 +17,10 @@
       'wa.product': 'Hello, I\'m interested in the arrangement "{name}". Is it available?',
       'aria.order': 'Order {name}',
       'newtab': '(opens in a new tab)',
+      // Para las tarjetas que main.js genera desde la API (no llevan data-i18n); el HTML ya los trae en inglés
+      'order': 'Order',
+      'detail.view': 'View details',
+      'panel.empty': 'New arrangements are coming soon.',
     },
     es: {
       // Los textos de abajo reemplazan a los marcados con data-i18n / data-i18n-attr
@@ -57,6 +61,7 @@
       'order': 'Pedir',
       'detail.kicker': 'Cuándo regalarlo',
       'detail.view': 'Ver detalles',
+      'panel.empty': 'Muy pronto verás aquí nuevos arreglos.',
       'detail.close': 'Cerrar',
       'p1.long': 'Las peonías rosadas son la flor de la ternura y la buena fortuna, por eso este arreglo es ideal cuando quieres decir algo sentido sin que resulte pesado. Elígelo para un primer aniversario, un baby shower, una sorpresa del Día de la Madre o para dar la bienvenida a un recién nacido. También va muy bien en una despedida de soltera o para agradecer a quien te ha cuidado. Las peonías tienen una temporada corta, así que el ramo se siente especial y poco común. Sus flores llenas y onduladas llenan la habitación de color suave y un perfume ligero, perfectas para una mesa de noche, el comedor o una recepción. Se disfrutan mejor durante la primera semana.',
       'p2.long': 'Este ramo suave, en tonos empolvados, de rosas, lisianthus y hortensia está hecho para el romance. Elígelo para un aniversario, San Valentín, una propuesta o una disculpa que merece más que palabras. También funciona de maravilla como regalo de boda, para una despedida de soltera o como un tranquilo «pienso en ti» un martes cualquiera. La paleta suave resulta elegante y no estridente, así que le queda bien a tu pareja, a tu madre o a una amiga. La hortensia aporta volumen generoso y el lisianthus dura bien en el agua. Se entrega listo para poner en un florero sobre la mesa de la sala, donde sus colores delicados se admirarán durante días.',
@@ -139,6 +144,7 @@
       'aria.close': 'Cerrar menú',
       'aria.home': 'Ana María Florería, inicio',
       'aria.browse': 'Ver arreglos',
+      'aria.login': 'Iniciar sesión',
       'aria.lang': 'Idioma',
       'wa.catalog': 'Hola, quisiera ver el catálogo completo de arreglos.',
       'p1.alt': 'Peonías rosadas en florero de cristal',
@@ -187,6 +193,7 @@
       'aria.close': 'Закрыть меню',
       'aria.home': 'Ana María Florería, главная',
       'aria.browse': 'Смотреть композиции',
+      'aria.login': 'Войти',
       'aria.wa': 'Заказать через WhatsApp',
       'aria.lang': 'Язык',
       'aria.follow': 'Подписаться в Instagram',
@@ -220,6 +227,7 @@
       'order': 'Заказать',
       'detail.kicker': 'Когда дарить',
       'detail.view': 'Подробнее',
+      'panel.empty': 'Скоро здесь появятся новые композиции.',
       'detail.close': 'Закрыть',
       'p1.long': 'Розовые пионы — цветы нежности и удачи, поэтому эта композиция идеальна, когда хочется сказать что-то искренне и без пафоса. Выберите её для первой годовщины, праздника в честь будущего малыша, сюрприза ко Дню матери или в честь рождения ребёнка. Она подойдёт и для девичника, и как благодарность тому, кто о вас заботился. Сезон пионов короток, поэтому букет воспринимается как редкий и особенный. Пышные махровые бутоны наполняют комнату мягким цветом и лёгким ароматом — они прекрасно смотрятся на прикроватной тумбе, обеденном столе или стойке ресепшен. Лучше всего радуют в течение первой недели.',
       'p2.long': 'Этот мягкий букет в пудровых тонах из роз, эустомы и гортензии создан для романтики. Выберите его для годовщины, Дня святого Валентина, предложения руки и сердца или извинения, которое заслуживает большего, чем слова. Он прекрасно подходит и как свадебный подарок, для девичника или как тихое «я думаю о тебе» в самый обычный вторник. Сдержанная палитра выглядит элегантно, а не кричаще, поэтому букет подойдёт партнёру, маме и подруге. Гортензия добавляет щедрый объём, а эустома хорошо стоит в воде. Букет доставляется готовым к вазе — поставьте его на стол в гостиной, и нежные цвета будут радовать глаз много дней.',

@@ -1,0 +1,129 @@
+/* =========================================================
+   Ana María Florería — panel de administración
+   Reutiliza las variables, fuentes y botones de styles.css.
+   Pensado para usarse con el dedo: letra grande, botones altos.
+   ========================================================= */
+
+.admin { font-size: 1.125rem; }
+.admin [hidden] { display: none !important; }
+.admin :focus-visible { outline: 3px solid var(--ebano); outline-offset: 3px; }
+
+/* Botones más grandes y con texto normal (no en mayúsculas) para leerse fácil */
+.admin .btn { text-transform: none; letter-spacing: 0.01em; font-size: 1rem; font-weight: 600; min-height: 52px; text-align: center; }
+.admin .btn--sm { min-height: 48px; padding: 10px 18px; font-size: 0.95rem; }
+.admin .btn--lg { min-height: 58px; padding: 14px 28px; font-size: 1.05rem; }
+.admin .btn[disabled] { opacity: 0.45; cursor: not-allowed; transform: none; }
+.btn--danger { background: #fff; border-color: #9b2c2c; color: #8a2424; }
+.btn--danger:hover { background: #9b2c2c; color: #fff; }
+.admin .btn--danger:focus-visible { outline-color: #9b2c2c; }
+
+/* ---------- Barra superior ---------- */
+.admin-bar { background: var(--marfil); border-bottom: 1px solid var(--linea); }
+.admin-bar__inner {
+  width: var(--container); margin-inline: auto; min-height: 76px; padding-block: 10px;
+  display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap;
+}
+.admin-bar__logo { height: 48px; width: auto; }
+.admin-bar__actions { display: flex; gap: 10px; flex-wrap: wrap; }
+
+.admin-main { width: min(100% - 32px, 920px); margin-inline: auto; padding-block: clamp(24px, 5vw, 56px) 80px; }
+.admin-main:focus { outline: none; }
+.admin-lead { color: var(--texto-suave); margin-top: 0.6rem; }
+#t-panel:focus { outline: none; }
+.admin .title { font-size: clamp(1.9rem, 5vw, 2.8rem); margin-top: 0.5rem; }
+
+/* ---------- Entrar ---------- */
+.admin-box {
+  max-width: 480px; margin-inline: auto; padding: clamp(22px, 4vw, 36px);
+  background: #fffaf5; border: 1px solid rgba(22, 21, 21, 0.1); border-radius: 26px;
+}
+.admin-box form { margin-top: 1.4rem; display: grid; gap: 18px; }
+.admin-box .btn { width: 100%; }
+
+/* ---------- Campos ---------- */
+.field { display: grid; gap: 6px; }
+.field label, .admin-photo legend { font: 600 1rem/1.3 var(--font-body); }
+.field input, .field textarea, .field select {
+  width: 100%; min-height: 52px; padding: 12px 14px;
+  font: 400 1.05rem/1.4 var(--font-body); color: var(--texto);
+  background: #fff; border: 1.5px solid rgba(22, 21, 21, 0.4); border-radius: 12px;
+}
+.field textarea { resize: vertical; min-height: 140px; }
+.field input:focus-visible, .field textarea:focus-visible { outline: 3px solid var(--ebano); outline-offset: 2px; border-color: var(--ebano); }
+.field__money { display: flex; align-items: center; gap: 8px; font: 500 1.3rem/1 var(--font-title); }
+.field__money input { max-width: 200px; }
+.hint { font-size: 0.9rem; line-height: 1.45; color: var(--texto-suave); }
+.hint--note { padding: 10px 14px; background: var(--rose-soft); border-radius: 12px; }
+
+.check { display: flex; align-items: center; gap: 14px; min-height: 52px; font-weight: 600; cursor: pointer; }
+.check input { width: 28px; height: 28px; accent-color: var(--ebano); flex: none; cursor: pointer; }
+
+/* ---------- Mensajes ---------- */
+.admin-msg { min-height: 0; font-weight: 500; color: #8a2424; }
+.admin-msg:empty { display: none; }
+.admin-msg--ok { color: #1d4d1d; background: #e6f3e6; border-radius: 12px; padding: 12px 16px; margin-top: 18px; }
+
+/* ---------- Lista ---------- */
+.admin-panel__head { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 18px 24px; }
+.admin-panel__head .btn { flex: none; }
+.admin-list { margin-top: 24px; display: grid; gap: 14px; }
+.admin-item {
+  display: grid; grid-template-columns: 76px minmax(0, 1fr); gap: 14px 16px; align-items: center;
+  background: #fffaf5; border: 1px solid rgba(22, 21, 21, 0.12); border-radius: 22px; padding: 14px;
+}
+.admin-item.is-hidden { background: #f3eeea; }
+.admin-item.is-hidden .admin-item__thumb { opacity: 0.55; }
+.admin-item__thumb { width: 76px; aspect-ratio: 4 / 5; border-radius: 10px; overflow: hidden; background: var(--rose-soft); }
+.admin-item__thumb img { width: 100%; height: 100%; object-fit: cover; }
+.admin-item__name { font: 600 1.15rem/1.3 var(--font-body); overflow-wrap: anywhere; }
+.admin-item__meta { margin-top: 4px; display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; font-size: 1rem; color: var(--texto-suave); }
+.admin-item__price { font: 500 1.15rem/1 var(--font-title); color: var(--texto); }
+.badge { display: inline-block; padding: 4px 12px; border-radius: 999px; font: 600 0.85rem/1.3 var(--font-ui); }
+.badge--on { background: #dff0df; color: #1d4d1d; }
+.badge--off { background: #e4dfdb; color: #4a4545; }
+.admin-item__actions { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: 10px; }
+.admin-item__actions .btn { flex: 1 1 140px; }
+.admin-item__actions .btn--danger { flex-basis: 120px; }
+.admin-empty { margin-top: 24px; padding: 28px; text-align: center; background: #fffaf5; border: 1px dashed var(--linea); border-radius: 22px; }
+
+/* ---------- Diálogos ---------- */
+.admin-dialog {
+  width: min(600px, calc(100% - 16px)); max-height: calc(100dvh - 16px); margin: auto; padding: 0;
+  border: 0; border-radius: 26px; background: var(--marfil); color: var(--texto); overflow: auto;
+  box-shadow: 0 30px 80px rgba(22, 21, 21, 0.35);
+}
+.admin-dialog--sm { width: min(480px, calc(100% - 16px)); padding: 24px; }
+.admin-dialog--sm .admin-dialog__foot { position: static; padding: 18px 0 0; background: none; }
+.admin-dialog::backdrop { background: rgba(22, 21, 21, 0.55); }
+.admin-dialog form { padding: clamp(18px, 4vw, 30px); padding-bottom: 0; display: grid; gap: 20px; }
+.admin-dialog__title { font: 400 1.9rem/1.15 var(--font-title); margin-bottom: 4px; }
+.admin-dialog__foot {
+  position: sticky; bottom: 0; display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 10px;
+  padding: 14px 0 clamp(16px, 3vw, 24px); background: linear-gradient(180deg, rgba(255, 246, 238, 0), var(--marfil) 24%);
+}
+.admin-dialog__foot .btn { flex: 1 1 120px; padding-inline: 16px; }
+body.modal-open { overflow: hidden; }
+
+/* ---------- Foto ---------- */
+.admin-photo { border: 0; padding: 0; margin: 0; display: grid; gap: 10px; min-width: 0; }
+.admin-photo legend { padding: 0; margin-bottom: 6px; }
+.admin-photo__frame {
+  position: relative; width: min(100%, 240px); aspect-ratio: 4 / 5; border-radius: 10px; overflow: hidden;
+  background: var(--rose-soft); border: 1px dashed var(--linea); display: grid; place-items: center;
+  color: var(--texto-suave); font-size: 0.95rem; text-align: center;
+}
+.admin-photo__frame img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.admin-photo input[type="file"] { width: 100%; font: 400 0.95rem/1.4 var(--font-body); }
+.admin-photo input[type="file"]::file-selector-button {
+  min-height: 52px; margin-right: 14px; padding: 12px 22px; cursor: pointer;
+  font: 600 1rem/1 var(--font-ui); color: var(--ebano); background: var(--rose);
+  border: 1px solid transparent; border-radius: var(--radius-btn);
+}
+.admin-photo input[type="file"]::file-selector-button:hover { background: var(--rose-hover); }
+
+@media (max-width: 480px) {
+  .admin-panel__head .btn { width: 100%; }
+  .admin-bar__logo { height: 40px; }
+  .admin-bar__actions { width: 100%; }
+  .admin-bar__actions .btn { flex: 1; }
+}

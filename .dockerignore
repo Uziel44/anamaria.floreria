@@ -1,0 +1,11 @@
+# Lista blanca (mismo criterio que plexipedidos): la imagen solo lleva server/.
+# La landing estática no entra: la sirve Caddy desde el clon del repo.
+*
+!server
+
+# Dentro de lo permitido, igual queda afuera:
+server/node_modules
+server/data
+server/.env
+server/.env.*
+server/*.md

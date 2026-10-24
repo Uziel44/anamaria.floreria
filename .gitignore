@@ -1,0 +1,9 @@
+# Servidor
+server/node_modules/
+server/data/
+server/.env
+*.tmp
+
+# Sistema
+.DS_Store
+Thumbs.db

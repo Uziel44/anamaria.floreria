@@ -59,6 +59,114 @@
   refreshLinks();
   document.addEventListener('i18n:change', refreshLinks);
 
+  // ---- Tarjetas desde la API ----
+  // Si /api/productos responde con datos, reemplazan las tarjetas del HTML (que quedan como respaldo sin servidor).
+  // Todo se construye con createElement/textContent: nada del producto pasa por innerHTML.
+  // Las tarjetas generadas no usan data-i18n (i18n.js solo conoce lo que existía al cargar): su texto se
+  // calcula aquí según el idioma activo, con el español como respaldo campo por campo.
+  const grid = $('.grid');
+  const SAFE_IMG = /^(\/uploads\/|img\/)/;   // solo fotos propias; cualquier otra ruta se descarta
+  const SVG_NS = 'http://www.w3.org/2000/svg';
+  const cards = [];                           // { card, p } de las tarjetas generadas
+
+  const el = (tag, className, text) => {
+    const n = document.createElement(tag);
+    if (className) n.className = className;
+    if (text !== undefined) n.textContent = text;
+    return n;
+  };
+  const hasPrice = (p) => typeof p.precio === 'number' && isFinite(p.precio) && p.precio >= 0;
+  const formatPrice = (n) => new Intl.NumberFormat('en-US', {
+    style: 'currency', currency: 'USD', minimumFractionDigits: Number.isInteger(n) ? 0 : 2,
+  }).format(n);
+  const field = (p, key) => ((p[window.I18N.lang] || {})[key]) || ((p.es || {})[key]) || '';
+
+  const buildCard = (p) => {
+    const card = el('article', 'card');
+
+    const media = el('div', 'card__media');
+    const zoom = el('button', 'card__zoom');
+    zoom.type = 'button';
+    zoom.setAttribute('data-detail', '');
+    if (typeof p.imagen === 'string' && SAFE_IMG.test(p.imagen)) {
+      const img = document.createElement('img');
+      img.src = p.imagen;
+      img.width = 900; img.height = 1125;       // reserva el espacio (4:5) para que no salte el layout
+      img.loading = 'lazy';
+      zoom.append(img);
+    }
+    zoom.append(el('span', 'sr-only'));
+    const icon = document.createElementNS(SVG_NS, 'svg');
+    icon.setAttribute('class', 'icon card__zoom-icon');
+    icon.setAttribute('aria-hidden', 'true');
+    const use = document.createElementNS(SVG_NS, 'use');
+    use.setAttribute('href', '#i-zoom');
+    icon.append(use);
+    zoom.append(icon);
+    media.append(zoom);
+
+    const body = el('div', 'card__body');
+    body.append(el('h3', 'card__name'), el('p', 'card__desc'));
+    if (hasPrice(p)) body.append(el('p', 'card__price', formatPrice(p.precio)));
+    const long = el('p', 'card__long');
+    long.hidden = true;
+    const order = el('a', 'btn btn--dark btn--sm');
+    order.href = '#';
+    body.append(long, order);
+
+    card.append(media, body);
+    return card;
+  };
+
+  // Rellena (o vuelve a rellenar al cambiar de idioma) los textos de una tarjeta generada
+  const fillCard = (card, p) => {
+    const name = field(p, 'nombre');
+    $('.card__name', card).textContent = name;
+    $('.card__desc', card).textContent = field(p, 'desc');
+    $('.card__long', card).textContent = field(p, 'largo');
+    $('.card__zoom .sr-only', card).textContent = t('detail.view');
+    const img = $('.card__media img', card);
+    if (img) img.alt = field(p, 'alt') || name;
+    const order = $('.btn', card);
+    order.textContent = t('order');
+    // El precio viaja en el mensaje de WhatsApp: «Pink peonies ($45)»
+    order.dataset.waProduct = hasPrice(p) ? `${name} (${formatPrice(p.precio)})` : name;
+  };
+
+  const fillCards = () => {
+    cards.forEach(({ card, p }) => fillCard(card, p));
+    emptyMsg.textContent = t('panel.empty');
+    refreshLinks();
+  };
+  document.addEventListener('i18n:change', fillCards);
+
+  // Aviso para cuando la API responde bien pero no hay ninguna tarjeta visible (Ana María las ocultó o borró todas)
+  const emptyMsg = el('p', 'grid__empty');
+
+  const renderProducts = (list) => {
+    const items = list
+      .filter((p) => p && typeof p === 'object' && p.visible !== false)
+      .sort((a, b) => (Number(a.orden) || 0) - (Number(b.orden) || 0));
+    cards.length = 0;
+    items.forEach((p) => cards.push({ card: buildCard(p), p }));
+    grid.replaceChildren(...(items.length ? cards.map(({ card }) => card) : [emptyMsg]));
+    fillCards();
+  };
+
+  if (grid) {
+    // Las tarjetas del HTML se ocultan mientras llega la respuesta: así no se ve un instante una tarjeta vieja
+    // (o ya borrada) antes de que entren las reales. Si la API no responde, se muestran igual.
+    grid.classList.add('is-loading');
+    const abort = new AbortController();
+    const giveUp = setTimeout(() => abort.abort(), 5000);
+    fetch('/api/productos', { headers: { Accept: 'application/json' }, signal: abort.signal })
+      .then((res) => (res.ok ? res.json() : Promise.reject(new Error(res.status))))
+      // Una lista vacía SÍ es una respuesta válida: significa «no hay tarjetas», no «el servidor falló»
+      .then((list) => { if (Array.isArray(list)) renderProducts(list); })
+      .catch(() => { /* sin servidor, con error o sin respuesta a tiempo: se conservan las tarjetas del HTML */ })
+      .finally(() => { clearTimeout(giveUp); grid.classList.remove('is-loading'); });
+  }
+
   // Año del copyright
   $$('[data-year]').forEach((el) => { el.textContent = new Date().getFullYear(); });
 
@@ -114,12 +222,15 @@
     const dImg = $('.detail__img', detail);
     const dTitle = $('.detail__title', detail);
     const dText = $('.detail__text', detail);
+    const dPrice = $('.detail__price', detail);
     const dOrder = $('.detail__order', detail);
 
-    const openDetail = ({ src, alt, title, text, href }) => {
-      dImg.src = src;
+    const openDetail = ({ src, alt, title, text, href, price = '' }) => {
+      if (src) dImg.src = src; else dImg.removeAttribute('src');
       dImg.alt = alt;
       dTitle.textContent = title;
+      dPrice.textContent = price;
+      dPrice.hidden = !price;
       dText.textContent = text;
       dOrder.href = href;
       document.body.classList.add('modal-open');
@@ -127,17 +238,21 @@
       detail.scrollTop = 0;
     };
 
-    $$('.card').forEach((card) => card.addEventListener('click', (e) => {
-      if (e.target.closest('a')) return; // el botón "Pedir" de la tarjeta sigue yendo a WhatsApp
+    // Un solo oyente en la cuadrícula: sirve igual a las tarjetas del HTML y a las generadas desde la API
+    if (grid) grid.addEventListener('click', (e) => {
+      const card = e.target.closest('.card');
+      if (!card || e.target.closest('a')) return; // el botón "Pedir" de la tarjeta sigue yendo a WhatsApp
       const img = $('.card__media img', card);
+      const price = $('.card__price', card);
       openDetail({
-        src: img.currentSrc || img.src,
-        alt: img.alt,
+        src: img ? (img.currentSrc || img.src) : '',
+        alt: img ? img.alt : '',
         title: $('.card__name', card).textContent,
         text: $('.card__long', card).textContent,
         href: $('[data-wa-product]', card).href,
+        price: price ? price.textContent : '',
       });
-    }));
+    });
 
     $$('[data-open-detail]').forEach((el) => {
       const open = (e) => {
