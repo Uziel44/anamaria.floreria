@@ -104,8 +104,11 @@
     li.addEventListener('focusout', () => li.classList.remove('is-dismissed'));
   });
 
-  // ---- Detalle de arreglo: al tocar una tarjeta se abre una ventana con la foto grande y cuándo regalarlo ----
-  // El texto largo vive oculto en cada tarjeta (.card__long) y i18n.js lo traduce como el resto.
+  // ---- Detalle: al tocar una tarjeta se abre una ventana con la foto grande y cuándo regalarlo ----
+  // Sirve a tres tipos de disparador; el texto largo vive oculto en el HTML y i18n.js lo traduce como el resto:
+  //   .card                      arreglo        → .card__long dentro de la tarjeta
+  //   .occ[data-open-detail]     ocasión        → .occ__long dentro de la tarjeta
+  //   button[data-open-detail]   botón extra    → párrafo oculto indicado en data-detail-text, foto en data-detail-img
   const detail = $('#detail');
   if (detail && typeof detail.showModal === 'function') {
     const dImg = $('.detail__img', detail);
@@ -113,21 +116,47 @@
     const dText = $('.detail__text', detail);
     const dOrder = $('.detail__order', detail);
 
-    const openDetail = (card) => {
-      const img = $('.card__media img', card);
-      dImg.src = img.currentSrc || img.src;
-      dImg.alt = img.alt;
-      dTitle.textContent = $('.card__name', card).textContent;
-      dText.textContent = $('.card__long', card).textContent;
-      dOrder.href = $('[data-wa-product]', card).href;
+    const openDetail = ({ src, alt, title, text, href }) => {
+      dImg.src = src;
+      dImg.alt = alt;
+      dTitle.textContent = title;
+      dText.textContent = text;
+      dOrder.href = href;
       document.body.classList.add('modal-open');
       detail.showModal();
       detail.scrollTop = 0;
     };
 
     $$('.card').forEach((card) => card.addEventListener('click', (e) => {
-      if (!e.target.closest('a')) openDetail(card); // el botón "Pedir" de la tarjeta sigue yendo a WhatsApp
+      if (e.target.closest('a')) return; // el botón "Pedir" de la tarjeta sigue yendo a WhatsApp
+      const img = $('.card__media img', card);
+      openDetail({
+        src: img.currentSrc || img.src,
+        alt: img.alt,
+        title: $('.card__name', card).textContent,
+        text: $('.card__long', card).textContent,
+        href: $('[data-wa-product]', card).href,
+      });
     }));
+
+    $$('[data-open-detail]').forEach((el) => {
+      const open = (e) => {
+        e.preventDefault();
+        const img = $('img', el);
+        const textEl = el.dataset.detailText ? document.getElementById(el.dataset.detailText) : $('.occ__long', el);
+        openDetail({
+          src: img ? (img.currentSrc || img.src) : el.dataset.detailImg,
+          alt: img ? img.alt : '',
+          title: $('.occ__title', el) ? $('.occ__title', el).textContent : el.textContent.trim(),
+          text: textEl.textContent,
+          href: waLink(el.dataset.detailWa),
+        });
+      };
+      el.addEventListener('click', open);
+      // Un enlace con role="button" también debe activarse con la barra espaciadora
+      if (el.tagName === 'A') el.addEventListener('keydown', (e) => { if (e.key === ' ') open(e); });
+    });
+
     $('.detail__close', detail).addEventListener('click', () => detail.close());
     detail.addEventListener('click', (e) => { if (e.target === detail) detail.close(); }); // clic en el fondo
     detail.addEventListener('close', () => document.body.classList.remove('modal-open'));
